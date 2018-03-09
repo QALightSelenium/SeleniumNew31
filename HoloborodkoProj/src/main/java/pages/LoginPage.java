@@ -8,10 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
 
- /*   By loginNameInputName=By.name("_username");
-    By passwordInputId = By.id("password");
-    By buttonSubmitTypeXpath = By.xpath("//*[@type='submit']");*/
-
     @FindBy(name = "_username")
     WebElement InputLoginElement;
     @FindBy(id = "password")

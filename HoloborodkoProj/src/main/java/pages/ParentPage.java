@@ -26,12 +26,5 @@ public class ParentPage {
         return driver.getTitle();
     }
 
-    protected void checkTitle (String title){
-        Assert.assertEquals("Title not expected", getTitle(), title);
-    }
-
-    protected void checkZagolovok (String zagolovokText){
-        Assert.assertEquals("Zagolovok not matched", zagolovok.getTitle(), zagolovokText);
-    }
 
 }

@@ -2,18 +2,22 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ActionsWithWebElements {
     WebDriver driver;
     Logger log;
+    WebDriverWait webDriverWait20;
 
     public ActionsWithWebElements(WebDriver driver) {
         this.driver = driver;
         log = Logger.getLogger(getClass());
+        webDriverWait20 = new WebDriverWait(driver, 20);
     }
 
     /**
@@ -54,6 +58,10 @@ public class ActionsWithWebElements {
      */
     public boolean isElementPresent(WebElement element) {
         return (element.isDisplayed() && element.isEnabled());
+    }
+
+    public boolean areTwoElementPresent(WebElement elementNum, WebElement elementCom, String num, String com){
+      return ((num.equalsIgnoreCase(elementNum.getText()))&&(com.equalsIgnoreCase(elementCom.getText())));
     }
 
     /**
