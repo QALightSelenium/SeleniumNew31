@@ -18,7 +18,7 @@ public class ValidLogin extends ParentTest {
         loginPage.InputPassword("909090");
         loginPage.ClickSubmitButton();
         checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(), true);
-        checkAcceptanceCriteria("Title is not expected", homePage.getTitle(), "Учет запчасте");
+        checkAcceptanceCriteria("Title is not expected", homePage.getTitle(), "Учет запчастей");
     }
 
 

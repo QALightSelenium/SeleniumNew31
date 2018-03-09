@@ -1,7 +1,7 @@
 package parentTest;
 
 //import Pages.*;
-//import libs.ExcelDriver;
+import libs.ExcelDriver;
 
 import libs.Utils;
 import org.apache.log4j.Logger;
@@ -19,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.ApparatPage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -30,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.CoreMatchers.is;
 
-//import pages.ApparatPage;
 //import pages.EditApparatPage;
 
 @RunWith(value = Parameterized.class)
@@ -43,7 +43,7 @@ public class ParentTest {
    // public EditSdelkiPage editSdelkiPage;
    // public SparePage sparePage;
    // public EditNewSparePage editNewSparePage;
- //   public ApparatPage apparatPage;
+    public ApparatPage apparatPage;
  //   public EditApparatPage editApparatPage;
     //public TypeSdelkiPage typeSdelkiPage;
     //public EditTypeSdelkiPage editTypeSdelkiPage;
@@ -52,7 +52,7 @@ public class ParentTest {
     private String pathToScreenShot;
     private String browser;
     Logger log;
-    //public ExcelDriver excelDriver;
+    public ExcelDriver excelDriver;
 
     @Rule
     public TestName testName = new TestName();
@@ -126,12 +126,12 @@ public class ParentTest {
         //editSdelkiPage = new EditSdelkiPage(driver);
         //sparePage = new SparePage(driver);
         //editNewSparePage = new EditNewSparePage(driver);
-//           apparatPage = new ApparatPage(driver);
-//           editApparatPage = new EditApparatPage(driver);
+         apparatPage = new ApparatPage(driver);
+//         editApparatPage = new EditApparatPage(driver);
        // typeSdelkiPage = new TypeSdelkiPage(driver);
        // editTypeSdelkiPage = new EditTypeSdelkiPage(driver);
 
-        //excelDriver = new ExcelDriver();
+        excelDriver = new ExcelDriver();
 
 
     }
