@@ -1,19 +1,34 @@
 package apparatTest;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import parentTest.ParentTest;
 
-public class CreateApparatTest extends ParentTest {
+import java.util.Arrays;
+import java.util.Collection;
 
-    public CreateApparatTest(String browser) {
+@RunWith(value = Parameterized.class)
+
+public class CreateValidApparatsWithParam extends ParentTest {
+    String number, comment;
+
+    public CreateValidApparatsWithParam(String browser, String number, String comment) {
         super(browser);
+        this.number = number;
+        this.comment = comment;
+    }
+
+    @Parameterized.Parameters
+    public static Collection testData(){
+        return Arrays.asList(new Object[][]{
+                {"chrome", "123", "best device ever"},
+                {"chrome", "777", "woody woodpecker"}
+        });
     }
 
     @Test
-    public void createApparat(){
-        String appNumber = "159";
-        String appComment = "cool device";
-
+    public void addingNewApparats(){
         //logging in
         loginPage.LoginUser("Student", "909090");
 
@@ -35,32 +50,32 @@ public class CreateApparatTest extends ParentTest {
         //verifying that redirected to the Apparat add page
         checkAcceptanceCriteria("Label is not present", apparatPage.isLabelPresent(), true);
 
-        //inputing apparat number and comment
-        apparatPage.InputApparatNumber(appNumber);
-        apparatPage.InputApparatComment(appComment);
-        apparatPage.ClickApparatCreateButton();
+        //Adding new apparats
+        apparatPage.addNewApparat(number, comment);
 
         //verifying that redirected to the Apparat page
         checkAcceptanceCriteria("Title is not present", apparatPage.isZagolovokPresent(), true);
         //verifying that added apparat is present
         checkAcceptanceCriteria("Added apparat is not present",
-                apparatPage.isAddedApparatPresent(appNumber,appComment),true);
+                apparatPage.isAddedApparatPresent(number,comment),true);
 
         //clicking the row with added apparat
         apparatPage.ClickApparatAddedRow();
 
         //verifying that redirected to the Apparat edit page
-        checkAcceptanceCriteria("Avatar is not present", apparatPage.isApparatEditH3Present(), true);
+        checkAcceptanceCriteria("Page h3 is not present", apparatPage.isApparatEditH3Present(), true);
 
         //deleting the apparat
-        apparatPage.ClickApparatDeleteButton();
+        apparatPage.clickApparatDeleteButton();
 
         //verifying that redirected to the Apparat page
         checkAcceptanceCriteria("Title is not present", apparatPage.isZagolovokPresent(), true);
 
         //verifying that previously added apparat is deleted
         checkAcceptanceCriteria("Added apparat is not present",
-                apparatPage.isAddedApparatPresent(appNumber,appComment),false);
+                apparatPage.isAddedApparatPresent(number,comment),false);
+
 
     }
+
 }

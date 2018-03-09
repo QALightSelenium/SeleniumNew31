@@ -42,11 +42,12 @@ public class ActionsWithWebElements {
      * @param element
      */
     public void ClickElement(WebElement element) {
+        String s = element.getText();
         try {
             element.click();
-            log.info("Button is clicked");
+            log.info("Element " + s + " is clicked");
         } catch (Exception e) {
-            log.error("Button is not clicked " + e);
+            log.error("Element " + s + " is not clicked " + e);
         }
     }
 
@@ -60,6 +61,14 @@ public class ActionsWithWebElements {
         return (element.isDisplayed() && element.isEnabled());
     }
 
+    /**
+     * this method checks the presence of two webelements with known text inside them
+     * @param elementNum
+     * @param elementCom
+     * @param num
+     * @param com
+     * @return
+     */
     public boolean areTwoElementPresent(WebElement elementNum, WebElement elementCom, String num, String com){
       return ((num.equalsIgnoreCase(elementNum.getText()))&&(com.equalsIgnoreCase(elementCom.getText())));
     }

@@ -45,8 +45,6 @@ public class ApparatPage extends ParentPage {
         return actionsWithWebElements.isElementPresent(ApparatNumber);
     }
 
-    public  String getCurrentUrl(){return driver.getCurrentUrl();}
-
     public void InputApparatNumber(String appNumber){
         actionsWithWebElements.InputToTextField(ApparatNumber, appNumber);
     }
@@ -71,8 +69,13 @@ public class ApparatPage extends ParentPage {
         return actionsWithWebElements.areTwoElementPresent(ApparatLastRowNum, ApparatLastRowCom, num, com);
     }
 
-    public void ClickApparatDeleteButton(){
+    public void clickApparatDeleteButton(){
         actionsWithWebElements.ClickElement(ApparatDeleteButton);
     }
 
+    public void addNewApparat(String number, String comment){
+        InputApparatNumber(number);
+        InputApparatComment(comment);
+        ClickApparatCreateButton();
+    }
 }
