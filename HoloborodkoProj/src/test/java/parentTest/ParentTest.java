@@ -39,14 +39,7 @@ public class ParentTest {
     WebDriver driver;
     public LoginPage loginPage;
     public HomePage homePage;
-   // public SdelkiListPage sdelkiListPage;
-   // public EditSdelkiPage editSdelkiPage;
-   // public SparePage sparePage;
-   // public EditNewSparePage editNewSparePage;
     public ApparatPage apparatPage;
- //   public EditApparatPage editApparatPage;
-    //public TypeSdelkiPage typeSdelkiPage;
-    //public EditTypeSdelkiPage editTypeSdelkiPage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -122,15 +115,7 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-       // sdelkiListPage = new SdelkiListPage(driver);
-        //editSdelkiPage = new EditSdelkiPage(driver);
-        //sparePage = new SparePage(driver);
-        //editNewSparePage = new EditNewSparePage(driver);
-         apparatPage = new ApparatPage(driver);
-//         editApparatPage = new EditApparatPage(driver);
-       // typeSdelkiPage = new TypeSdelkiPage(driver);
-       // editTypeSdelkiPage = new EditTypeSdelkiPage(driver);
-
+        apparatPage = new ApparatPage(driver);
         excelDriver = new ExcelDriver();
 
 
